@@ -7,6 +7,7 @@ export default class Guisos extends BaseSchema {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id_guiso')
       table.string('guiso')
+      table.integer('disponible').unsigned().references('id').inTable('disponibles')
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

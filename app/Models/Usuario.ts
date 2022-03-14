@@ -15,6 +15,12 @@ export default class Usuario extends BaseModel {
   @column()
   public rememberMeToken?: string
 
+  @column()
+  public rol
+
+  @column()
+  public status
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

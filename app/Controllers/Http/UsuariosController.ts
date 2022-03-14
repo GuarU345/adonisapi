@@ -10,6 +10,8 @@ export default class UsuariosController {
      const usuario=new Usuario()
      usuario.email=email
      usuario.password=password
+     usuario.rol=1
+     usuario.status=1
 
 
      usuario.save()

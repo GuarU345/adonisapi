@@ -32,10 +32,17 @@ Route.post('dashboard','UsuariosController.traerID')
 Route.get('consulta1','ProductosController.traerProductos')
 Route.post('crear','ProductosController.crearProducto')
 
-//Categorias
-Route.get('consultacategorias','CategoriasController.mostrarCategorias')
-Route.post('crearcategoria','CategoriasController.crearCategoria')
-
 //Personas
 Route.post('crearpersona','PersonasController.crearPersona')
+
+//Guisos
+Route.post('crearguiso','GuisosController.crearGuiso')
+Route.get('obtenerguiso','GuisosController.mostrarGuisos')
+Route.get('disponibles','GuisosController.guisosDisponibles')
+Route.put('modificarguiso/:id','GuisosController.modificarGuiso')
+
+//Estados
+Route.post('crearestado','DisponiblesController.crearEstados')
+
+
 

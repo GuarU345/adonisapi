@@ -9,9 +9,8 @@ export default class Productos extends BaseSchema {
       table.string('nom_producto')
       table.double('precio')
       table.integer('cantidad')
-      table.integer('categoria').unsigned().references('id_categoria').inTable('categorias')
       table.integer('guiso').unsigned().references('id_guiso').inTable('guisos')
-      table.integer('disponibilidad').unsigned().references('id').inTable('disponibles')
+
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

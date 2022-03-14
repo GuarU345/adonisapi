@@ -14,7 +14,8 @@ export default class ProductosController {
     const nombre=request.input(['nom_producto'])
     const precio=request.input(['precio'])
     const cantidad=request.input(['cantidad'])
-    const categoria=request.input(['categoria'])
+    const guiso=request.input(['guiso'])
+    const disp=request.input(['disponibilidad'])
 
 
     const producto=new Producto()
@@ -22,7 +23,8 @@ export default class ProductosController {
     producto.nom_producto=nombre
     producto.precio=precio
     producto.cantidad=cantidad
-    producto.categoria=categoria
+    producto.guiso=guiso
+    producto.disponibilidad=disp
 
     await producto.save()
     response.json({producto})
