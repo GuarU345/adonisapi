@@ -17,15 +17,9 @@ public async guisosDisponibles(){
 }
 public async crearGuiso({request,response}){
     const nombre=request.input(['guiso'])
-    const dispo=request.input(['disponible'])
-
-
 
     const guiso=new Guiso()
-
     guiso.guiso=nombre
-    guiso.disponible=dispo
-
 
     await guiso.save()
     response.json({guiso})

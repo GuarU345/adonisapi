@@ -12,18 +12,38 @@ export default class MoongosesController {
   }
 
   }
-  public async insertar(){
-   const connection= mongoose.connect('mongodb+srv://admin:admin@miprimercluster.ityon.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+  public async insertar({request,response}){
+   const connection= mongoose.createConnection('mongodb+srv://admin:admin@miprimercluster.ityon.mongodb.net/prueba?retryWrites=true&w=majority')
+    const {Schema}=mongoose
+
+    const comentar=request.input(['comentarios'])
+
+    const comentarioschema=new Schema({
+      comentarios:String
+
+    },{
+      versionKey:false
+    });
+
+    const comentario=connection.model('comentarios',comentarioschema);
+
+    const crear=new comentario({comentarios:comentar})
+    await crear.save()
+    return response.json(crear)
+
+
+  }
+  public async mostrar({response}){
+    const connection= mongoose.createConnection('mongodb+srv://admin:admin@miprimercluster.ityon.mongodb.net/prueba?retryWrites=true&w=majority')
     const {Schema}=mongoose
 
     const comentarioschema=new Schema({
-      comentario:String
+      comentarios:String
     });
 
-    const comentario=(await connection).model('comentario',comentarioschema)
-
-    comentario.find({comentarios:'este es un comentario'})
-
+    const comentario=connection.model('comentarios',comentarioschema);
+   const buscar= comentario.findOne().sort({$natural:-1});
+   return buscar
 
   }
 }

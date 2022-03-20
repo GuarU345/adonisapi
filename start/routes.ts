@@ -27,10 +27,16 @@ Route.get('/', async () => {
 Route.post('register','UsuariosController.register')
 Route.post('login','UsuariosController.login')
 Route.get('token','UsuariosController.token')
+Route.post('traerusuario','UsuariosController.traerID')
+
 
 //Productos
 Route.get('consulta1','ProductosController.traerProductos')
 Route.post('crear','ProductosController.crearProducto')
+
+//Bebidas
+Route.post('crearbebida','BebidasController.crearBebida')
+Route.get('obtenerbebida','BebidasController.mostrarBebidas')
 
 //Personas
 Route.post('crearpersona','PersonasController.crearPersona')
@@ -46,7 +52,8 @@ Route.post('crearestado','DisponiblesController.crearEstados')
 
 //conexion
 Route.get('conexion','MoongosesController.conexion')
-Route.get('insertar','MoongosesController.insertar')
+Route.get('mostrar','MoongosesController.mostrar')
+Route.post('insertar','MoongosesController.insertar')
 
 
 
