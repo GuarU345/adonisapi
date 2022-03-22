@@ -17,9 +17,10 @@ export default class MoongosesController {
    await mongoose.connect('mongodb+srv://admin:admin@miprimercluster.ityon.mongodb.net/prueba?retryWrites=true&w=majority')
 
 
+   const mandar=request.input(['usuario'])
     const comentar=request.input(['comentarios'])
 
-    const crear=new ComentarioModelo.ComentarioModelo({comentarios:comentar})
+    const crear=new ComentarioModelo.ComentarioModelo({usuario:mandar,comentarios:comentar})
     await crear.save()
     return response.json(crear)
 
@@ -28,7 +29,7 @@ export default class MoongosesController {
   public async mostrar({response}){
     await mongoose.connect('mongodb+srv://admin:admin@miprimercluster.ityon.mongodb.net/prueba?retryWrites=true&w=majority')
 
-   const buscar= await ComentarioModelo.ComentarioModelo.findOne().sort({$natural:-1});
+   const buscar= await ComentarioModelo.ComentarioModelo.find()
    return buscar
 
   }

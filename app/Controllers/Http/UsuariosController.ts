@@ -35,12 +35,7 @@ export default class UsuariosController {
   }
 
   public async token({auth,response}){
-    try{
       return await auth.use('api').authenticate()
-    }
-    catch(e){
-      return response.unauthorized({error:"No está validado"})
-    }
   }
 
 }
